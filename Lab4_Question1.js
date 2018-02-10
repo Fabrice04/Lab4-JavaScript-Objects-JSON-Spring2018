@@ -14,10 +14,25 @@ var rates = {
 };
 
 // TODO add a new property for Swiss Francs. Symbol is CHF, value is 1.1787.
+rates.CHF = 1.1787;
+console.log(rates);
+
 // TODO if you had 100 Euros, calculate the equivalent value in Australian Dollars (AUD)
+var moneyEUR = 100;
+var moneyAUD = moneyEUR * rates.AUD;
+console.log("The equivalent value in Australian Dollars (AUD) of 100 Euro is: " + moneyAUD);
+
 // TODO write code to identify the currency symbol that has the highest exchange rate compared to Euros.
 //    In other words, identify the property with the largest value. the answer is BRL (Brazilian Real) at 3.8959 BRL to 1 Euro.
-
+var highestRate = 0;
+var highestRateSymbol = "";
+for (var rate in rates){
+    if (rates[rate] > highestRate){
+        highestRate =  rates[rate];
+        highestRateSymbol = rate;
+    }
+}
+console.log("The currency that has the highest exchange rate compared to Euros is: " + highestRateSymbol);
 
 
 
@@ -36,8 +51,12 @@ var iss_location = {
 };
 
 // TODO Extract the latitude value, and log it to the console.
-// TODO Extract the longitude value, and log it to the console.
+var latitudeValue = iss_location.iss_position.latitude;
+console.log("The the latitude value is: "+ latitudeValue);
 
+// TODO Extract the longitude value, and log it to the console.
+var longitudeValue = iss_location.iss_position.longitude;
+console.log("The the longitude value is: "+ longitudeValue);
 
 
 
@@ -52,9 +71,26 @@ var cats_and_owners = [
 ];
 
 // TODO print Gary Oldman's cat's name
-// TODO Taylor Swift's cat is called  'Meredith'. Add this data to the array.
-// TODO write a loop to print each cat owner, and their cat's name, one per line
+var owner = "Gary Oldman";
+var catName = "";
+for (var i =0 ; i < cats_and_owners.length ; i++){
+    if(cats_and_owners[i].name == owner){
+        catName = cats_and_owners[i].cat;
+    }
+}
+console.log(owner + "'s cat's name is " + catName);
 
+// TODO Taylor Swift's cat is called  'Meredith'. Add this data to the array.
+var owner2 = "Taylor Swift";
+var catName2 = "Meredith";
+var newCatOwner = {name : owner2, cat : catName2};
+cats_and_owners.push(newCatOwner);
+//console.log(cats_and_owners);
+
+// TODO write a loop to print each cat owner, and their cat's name, one per line
+for (var j=0 ; j < cats_and_owners.length ; j++){
+    console.log(cats_and_owners[j].name + "'s cat's name is " + cats_and_owners[j].cat);
+}
 
 
 
