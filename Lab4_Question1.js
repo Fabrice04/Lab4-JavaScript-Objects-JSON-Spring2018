@@ -52,11 +52,11 @@ var iss_location = {
 
 // TODO Extract the latitude value, and log it to the console.
 var latitudeValue = iss_location.iss_position.latitude;
-console.log("The the latitude value is: "+ latitudeValue);
+console.log("The latitude value is: "+ latitudeValue);
 
 // TODO Extract the longitude value, and log it to the console.
 var longitudeValue = iss_location.iss_position.longitude;
-console.log("The the longitude value is: "+ longitudeValue);
+console.log("The longitude value is: "+ longitudeValue);
 
 
 
@@ -224,7 +224,45 @@ var nobel_prize_winners_2017 = {
 };
 
 // TODO print the full name of the Literature Nobel laureate.
+var prizeArray = nobel_prize_winners_2017.prizes;
+
+for (var i = 0 ; i < prizeArray.length ; i++) {
+    if (prizeArray[i].category == "literature") {
+        var literature_Nobel_laureate = prizeArray[i].laureates;
+        for (j = 0 ; j < literature_Nobel_laureate.length ; j++){
+            var laureateFullName = literature_Nobel_laureate[j].firstname + " " + literature_Nobel_laureate[j].surname;
+            console.log("The full name of the Literature Nobel laureate is " + laureateFullName);
+        }
+
+    }
+}
+
 // TODO print the ids of each of the Physics Nobel laureates. Your code should still work without modification if a laureate was added, or removed.
+for (var i = 0 ; i < prizeArray.length ; i++) {
+    if (prizeArray[i].category == "physics") {
+        var physics_Nobel_Laureates = prizeArray[i].laureates;
+        console.log("The ids of each of the Physics Nobel laureates are: ");
+        for (j = 0 ; j < physics_Nobel_Laureates.length ; j++){
+            var laureateID = physics_Nobel_Laureates[j].id;
+            console.log(laureateID);
+        }
+
+    }
+}
+
 // TODO write code to print the names of all of the prize categories (So your output would start physics, chemistry, medicine... ).
+var categoryName = "";
+for (var i = 0 ; i < prizeArray.length ; i++){
+    if (i == (prizeArray.length - 1)){ // when we get to the last category I want to have '...' instead of ',' at the end
+        categoryName = categoryName + prizeArray[i].category + "...";
+    }
+    else{
+        categoryName = categoryName + prizeArray[i].category + ", ";
+    }
+
+}
+console.log("Names of all of the prize categories:")
+console.log(categoryName);
+
 // TODO write code to print the total number of prize categories
 // TODO write code to count the total number of laureates from 2017. (have a good look at how the JSON is structured, and think about what loop(s) you'll need to write.)
