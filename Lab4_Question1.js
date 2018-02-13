@@ -265,4 +265,21 @@ console.log("Names of all of the prize categories:")
 console.log(categoryName);
 
 // TODO write code to print the total number of prize categories
+var totalNumberCategories = 0;
+for (var i = 0 ; i < prizeArray.length ; i++){
+    if (prizeArray[i].category != ""){
+        totalNumberCategories++;
+    }
+}
+console.log("The total number of prize categories is " + totalNumberCategories);
+
+
 // TODO write code to count the total number of laureates from 2017. (have a good look at how the JSON is structured, and think about what loop(s) you'll need to write.)
+var totalLaureates2017 = 0;
+for (var i = 0 ; i < prizeArray.length ; i++) {
+    var laureatesArray = prizeArray[i].laureates;
+    for (j = 0 ; j < laureatesArray.length ; j++) {
+        totalLaureates2017++;
+    }
+}
+console.log("For 2017 we had a total of " + totalLaureates2017 + " Nobel laureates.");
